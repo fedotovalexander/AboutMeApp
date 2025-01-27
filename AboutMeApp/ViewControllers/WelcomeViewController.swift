@@ -9,14 +9,17 @@ import UIKit
 
 final class WelcomeViewController: UIViewController {
 
-    @IBOutlet var userNameLabel: UILabel!
+    @IBOutlet var welcomeLabel: UILabel!
     
-    var userName: String!
+    var user = User.getUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userNameLabel.text = "Welcome, \(userName ?? "")!"
+        welcomeLabel.text = """
+          Welcome, \(user.login)!
+          My name is \(user.person.fullName).
+        """
     }
     
     @IBAction func LogoutActionButton(_ sender: UIButton) {
